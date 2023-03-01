@@ -1,0 +1,30 @@
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.showcase { 
+    background: url('https://nt-jobify.onrender.com/landing-showcase.jpg')  center ;
+    height: 87vh;
+}
+
+.container h1 span {
+    color: red;
+}
+
+
+.hm {
+    font-size: 60px;
+    font-weight: 400;
+    width: 600px;
+    text-align: center;
+}
+
+
+.paramd {
+    text-align: center;
+    width: 730px;
+}

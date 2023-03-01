@@ -1,0 +1,13 @@
+.registar {
+    width: 800px;
+    height: 600px;
+    background-color: #fff;
+    box-shadow: 0px 0px 20px rgba(128, 128, 128, 0.363);
+}
+
+.umm {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
