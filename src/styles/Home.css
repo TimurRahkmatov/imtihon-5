@@ -7,8 +7,15 @@ a {
 }
 
 .showcase { 
-    background: url('https://nt-jobify.onrender.com/landing-showcase.jpg')  center ;
     height: 87vh;
+    align-items: center;
+    color: #fff;
+    background: linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),url('https://nt-jobify.onrender.com/landing-showcase.jpg') center / cover;
+
+}
+
+.showcase .container h1 {
+    margin-top: 10rem;
 }
 
 .container h1 span {

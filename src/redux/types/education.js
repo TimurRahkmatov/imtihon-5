@@ -1,0 +1,1 @@
+export const EDUCATION_GET="EDUCATION_GET"
