@@ -8,25 +8,29 @@ import { flushSync } from 'react-dom';
 import MyJobs from './MyJobs';
 
 const Dashboard = () => {
+    const { data, Loading, isError, error, mutateAsync } = useGetdate("/auth")    
     const navigate = useNavigate()
+    const status = localStorage.setItem("user status")
+    if(status) {
+        navigate("/dashboaraccount")
+    }
     async function getprofileuser() {
         const { data } = await axios.get("/profile/me")
-        console.log("salom", data);
-        if (data.status) {
+        if(data) {
             navigate("/dashboaraccount")
         }
+        await mutateAsync()
     }
     getprofileuser()
     // const {info} = useSelector(({market}) => market)
     let token = localStorage.getItem(localtoken)
-    const { data, Loading, isError, error, mutateAsync } = useGetdate("/auth")
-    if (Loading) {
-        return (
-            <h1>Loading...</h1>
-        )
-    }
+    // if (Loading) {
+    //     return (
+    //         <h1>Loading...</h1>
+    //     )
+    // }
     // console.log(data);
-    return token ? (
+    return (
         <div>
             <Headertwo />
             <section className='dashboard mt-5'>
@@ -37,7 +41,7 @@ const Dashboard = () => {
                 </div>
             </section>
         </div>
-    ) : <Navigate to='/login' />
+    )
 }
 
 export default Dashboard

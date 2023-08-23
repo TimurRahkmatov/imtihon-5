@@ -6,12 +6,12 @@ const useGetdate = (url) => {
     const [Loading, setLoading] = useState(false)
     const [isError, setisError] = useState(false)
     const [error, seterror] = useState(null)
-    const mutateAsync=async ()=>{
+    const mutateAsync = async () => {
         try {
             setLoading(true)
-            const {data} = await axios.get(url)
+            const { data } = await axios.get(url)
             setData(data)
-        }catch (error) {
+        } catch (error) {
             setisError(true);
             seterror(error)
             console.log(error);
@@ -20,12 +20,12 @@ const useGetdate = (url) => {
         }
     }
     useEffect(() => {
-        (async function() {
+        (async function () {
             try {
                 setLoading(true)
-                const {data} = await axios.get(url)
+                const { data } = await axios.get(url)
                 setData(data)
-            }catch (error) {
+            } catch (error) {
                 setisError(true);
                 seterror(error)
                 console.log(error);
@@ -34,7 +34,7 @@ const useGetdate = (url) => {
             }
         })();
     }, [url])
-  return {data,Loading,isError,mutateAsync, error}
+    return { data, Loading, isError, mutateAsync, error }
 }
 
 export default useGetdate

@@ -3,6 +3,7 @@ import Headertwo from '../Components/Headertwo'
 import { Navigate, Link, useParams } from 'react-router-dom';
 import { localtoken } from './../constains/index';
 import useGetdate from './../Hooks/useGetdate';
+import "../styles/explore.css"
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
@@ -13,7 +14,6 @@ const Explore = () => {
   let token = localStorage.getItem(localtoken)
   const { id } = useParams()
   const { data, Loading, isError, error,mutateAsync } = useGetdate("/jobs");
-  console.log("count:",count);
   if (Loading) {
     return (
       <h1>Loading...</h1>
@@ -74,7 +74,7 @@ const Explore = () => {
                 </Link>
                 <Link to={`/explore-details/${item?._id}`}><div className='por-3'></div></Link>
                 <div className="por-2 d-flex justify-content-between">
-                  <div className='d-flex gap-2 align-items-center'>
+                  <div className='d-flex jg gap-2 align-items-center'>
                     <div className="btns d-flex flex-column gap-2 align-items-center">
                       <button onClick={() => {
                         userLike(item._id)

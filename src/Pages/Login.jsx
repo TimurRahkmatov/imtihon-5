@@ -29,11 +29,12 @@ const Login = () => {
             }
         } catch (error) {
             console.log(error);
-            return toast("Already accound", { type: "error" })
+            return toast("Already not accound", { type: "error" })
         }
     }
     return (
-        <div className='salom d-flex align-items-center h-100vh justify-content-center'>
+        <div className='container'>
+            <div className='salom d-flex align-items-center h-100vh justify-content-center'>
             <div className='logincard d-flex flex-column justify-content-center'>
                 <h2 className='text-center fs-1 fw-normal'>Login</h2>
                 <form onSubmit={handleLogin} className='form d-flex flex-column px-5 gap-2'>
@@ -45,6 +46,7 @@ const Login = () => {
                 </form>
                 <div className='d-flex justify-content-center mt-4'><p>No acount yet? <Link className='text-danger text-decoration-none' to="/registar">Registar</Link></p></div>
             </div>
+        </div>
         </div>
     )
 }

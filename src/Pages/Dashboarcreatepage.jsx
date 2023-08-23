@@ -21,18 +21,28 @@ const Dashboarcreatepage = () => {
     const [user, setUser] = useState([])
     const [github, setGithub] = useState([])
     const dispatch = useDispatch()
+    const navi = useNavigate()
     async function useGetprofileID() {
         try {
             const { data } = await axios.get("/profile/me")
+            if(!data) {
+                navi("/dashboard")
+            }
+            localStorage.setItem("status user " , data.status)
+            console.log("er" , data.status);
             setUser(data)
             dispatch(profileGet(data))
             // console.log("------------", data);
         } catch (error) {
-            console.log(error)
+            if(!error.config.data) {
+                navi("/dashboard")
+            }
         }
     }
-    useGetprofileID();
-    const navi = useNavigate()
+
+    useGetprofileID()
+
+
 
     async function DangerZone() {
         const confirm1 = confirm("siz accountni ocirishni hohlaysizmi 1")

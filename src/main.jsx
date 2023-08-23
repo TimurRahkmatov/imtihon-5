@@ -22,7 +22,7 @@ import { store } from './redux/store'
 
 // Tooken
 let token = localStorage.getItem(localtoken)
-if (token) axios.defaults.headers.common[' access-token'] = token;
+if (token) axios.defaults.headers.common['access-token'] = token;
 
 // Toast
 import { ToastContainer } from "react-toastify";

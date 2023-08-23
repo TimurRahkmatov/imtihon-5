@@ -9,7 +9,7 @@ const Viefprofile = () => {
     const { id } = useParams();
     const [users, setUsers] = useState([]);
     const [jobId, setJobId] = useState();
-    const { data, Loading, isError, error } = useGetdate(`/jobs/${id}`);
+    const { data, Loading, isError, error, mutateAsync } = useGetdate(`/jobs/${id}`);
     let details = data;
     if (Loading) {
         return (
@@ -18,16 +18,19 @@ const Viefprofile = () => {
     }
     async function userDisleked(id) {
         const { data } = await axios.put(`/jobs/unlike/${id}`)
+        await mutateAsync();
         console.log(data);
     }
     async function userLike(id) {
         const { data } = await axios.put(`/jobs/like/${id}`)
+        await mutateAsync()
         const { arr } = await axios.get("/jobs")
         console.log(data)
     }
     async function userApply(id) {
         try {
             const { data } = await axios.post(`/jobs/apply/${id}`)
+            await mutateAsync()
             if (data) {
                 toast("Applyed!", { type: "success" })
             }

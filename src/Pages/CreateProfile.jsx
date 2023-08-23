@@ -30,8 +30,6 @@ const CreateProfile = () => {
         };
         try {
             const { data } = await axios.post("/profile", createProfile)
-
-            console.log("create", data);
             dispatch(profileGet(data))
             toast("Created profile", { type: "success" })
             navigate("/dashboaraccount")
